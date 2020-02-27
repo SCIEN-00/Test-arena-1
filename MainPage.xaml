@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="Test_arena_1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Test_arena_1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="800" Height="480">
+	<Page.Background>
+		<ImageBrush ImageSource="/Assets/mars curiosity rover small.png" Stretch="UniformToFill" AlignmentY="Top"/>
+	</Page.Background>
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Grid Grid.Column="0" Padding="4,4,4,4">
+			<Grid.Background>
+				<AcrylicBrush TintColor="Transparent" Opacity="1"/>
+			</Grid.Background>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<StackPanel Grid.Row="0">
+				<TextBlock Text="Test area" FontFamily="Calibri" FontSize="30" HorizontalAlignment="Center" Padding="4,0,4,0" VerticalAlignment="Top"/>
+				<NavigationViewItemSeparator/>
+				<ListViewItem Content="GPIO and sensors" x:Name="GPIO_b" FontFamily="Calibri" FontSize="20" Tapped="GPIO_Tapped" CornerRadius="2,2,2,2"/>
+				<ListViewItem Content="Süsteem" x:Name="System_b" FontFamily="Calibri" FontSize="20" Tapped="System_Tapped" CornerRadius="2,2,2,2"/>
+				<ListViewItem Content="Data plotting" x:Name="Data_plotting_b" FontFamily="Calibri" FontSize="20" IsEnabled="False" CornerRadius="2,2,2,2"/>
+				<ListViewItem Content="LiveCharts" x:Name="LiveCharts_b" FontFamily="Calibri" FontSize="20" IsEnabled="False" CornerRadius="2,2,2,2"/>
+				<NavigationViewItemSeparator/>
+			</StackPanel>
+
+			<TextBlock Grid.Row="1" x:Name="DateAndTime" FontFamily="Calibri" FontSize="18" TextAlignment="Center"/>
+		</Grid>
+
+		<Grid Grid.Column="1" Margin="4,4,4,4" Name="SystemSettingsPage_win" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2,2,2,2">
+			<local:System_page/>
+		</Grid>
+		<Grid Grid.Column="1" Margin="4,4,4,4" Name="GpioTesting_win" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2,2,2,2">
+			<local:GPIO_page/>
+		</Grid>
+		<Grid Grid.Column="1" Margin="4,4,4,4" Name="LiveCharts_win" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2,2,2,2">
+		</Grid>
+		<Grid Grid.Column="1" Margin="4,4,4,4" Name="DataPlotting_win" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2,2,2,2">
+		</Grid>
+
+		<!--<Grid Grid.Column="1">
+			<WebView x:Name="webView1" Source="https://www.youtube.com/embed/XeraDSzu0nw"/>
+		</Grid>-->
+	</Grid>
+</Page>
