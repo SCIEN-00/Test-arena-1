@@ -51,34 +51,20 @@ namespace Test_arena_1
 
         private async void I2C_Switch_Toggled(object sender, RoutedEventArgs e)
         {
-            var settings = new I2cConnectionSettings(0x44); // Arduino address
-            settings.BusSpeed = I2cBusSpeed.StandardMode;
-            string aqs = I2cDevice.GetDeviceSelector("I2C1");
-            var dis = await DeviceInformation.FindAllAsync(aqs);
-            SHT30_sensor = await I2cDevice.FromIdAsync(dis[0].Id, settings);
-
-            //string i2cDeviceSelector = I2cDevice.GetDeviceSelector();
-            //try
-            //{
-            //    await I2cController.GetDefaultAsync();
-            //}
-            //catch (Exception ex)
-            //{
-            //    GPIO_Info.Visibility = Visibility.Visible;
-            //    GPIO_Info.Text += "\n" + ex.Source;
-            //}
-
-            //IReadOnlyList<DeviceInformation> devices = await DeviceInformation.FindAllAsync(i2cDeviceSelector);
-            //var SHT30_sensor_settings = new I2cConnectionSettings(0x44); //SHT30 default I2C address is 0x44
-            //try
-            //{
-            //    SHT30_sensor = await I2cDevice.FromIdAsync(devices[0].Id, SHT30_sensor_settings);
-            //}
-            //catch (Exception ex)
-            //{
-            //    GPIO_Info.Visibility = Visibility.Visible;
-            //    GPIO_Info.Text += "\n" + ex.Source;
-            //}
+            try
+            {
+                var settings = new I2cConnectionSettings(0x44)
+                {
+                    BusSpeed = I2cBusSpeed.FastMode
+                };
+                IReadOnlyList<DeviceInformation> devices = await DeviceInformation.FindAllAsync(I2cDevice.GetDeviceSelector());
+                SHT30_sensor = await I2cDevice.FromIdAsync(devices[0].Id, settings);
+            }
+            catch (Exception ex)
+            {
+                GPIO_Info.Visibility = Visibility.Visible;
+                GPIO_Info.Text += "\n" + ex.Source;
+            }
 
             SHT30_sensor_timer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(1000) };
             SHT30_sensor_timer.Tick += SHT30_sensor_tick;
@@ -94,17 +80,8 @@ namespace Test_arena_1
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "<Pending>")]
         private void SHT30_sensor_tick(object sender, object e)
         {
-            var command = new byte[1];
-            var HumidityData = new byte[2];
-            var TemperatureData = new byte[2];
-
-            command[0] = 0xE5; //Read humidity
-            SHT30_sensor.WriteRead(command, HumidityData);
-
-            command[0] = 0xE3; //Read temperature
             SHT30_sensor.WriteRead(command, TemperatureData);
 
             // Calculate and report the humidity.
