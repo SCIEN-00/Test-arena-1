@@ -10,20 +10,27 @@
 	<Grid HorizontalAlignment="Center" VerticalAlignment="Center">
 		<StackPanel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-				<Button Name="RestartSystem" Content="&#xE7E8;" FontFamily="Segoe MDL2 Assets" FontSize="20" FontWeight="Normal" Click="RestartSystem_Click">
+				<Button Name="RestartSystem" Content="&#xE7E8;" FontFamily="Segoe MDL2 Assets" FontSize="20" FontWeight="Normal" Click="RestartSystem_Click" CornerRadius="2" Margin="4">
 					<Button.Background>
 						<AcrylicBrush TintColor="Transparent"/>
 					</Button.Background>
 				</Button>
-				<Button Name="CloseApp" Content="&#xE10A;" FontFamily="Segoe MDL2 Assets" FontSize="20" Click="CloseApp_Click">
+				<Button Name="CloseApp" Content="&#xE10A;" FontFamily="Segoe MDL2 Assets" FontSize="20" Click="CloseApp_Click" CornerRadius="2" Margin="4">
 					<Button.Background>
 						<AcrylicBrush TintColor="#7FFF0000"/>
 					</Button.Background>
 				</Button>
 			</StackPanel>
 
-			<Grid HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,4,4,4">
-				<TextBlock Name="Info_field" FontFamily="Calibri" Margin="4,4,4,4"/>
+			<Grid CornerRadius="2" Margin="4">
+				<Grid.Background>
+					<AcrylicBrush TintColor="Transparent" TintOpacity="0"/>
+				</Grid.Background>
+				<Slider x:Name="Screen_brightnes" Width="200" FontFamily="Calibri" Header="Screen brightness" ValueChanged="Screen_brightnes_ValueChanged" Margin="4"/>
+			</Grid>
+			
+			<Grid HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4">
+				<TextBlock Name="Info_field" FontFamily="Calibri" Margin="4"/>
 			</Grid>
 		</StackPanel>
 	</Grid>

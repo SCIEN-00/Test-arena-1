@@ -39,8 +39,10 @@
 		</Grid>
 
 		<Grid Grid.Column="1" Margin="4,4,4,4" Name="SystemSettingsPage_win" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2,2,2,2">
+			<local:System_page/>
 		</Grid>
 		<Grid Grid.Column="1" Margin="4,4,4,4" Name="GpioTesting_win" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2,2,2,2">
+			<local:GPIO_page/>
 		</Grid>
 		<Grid Grid.Column="1" Margin="4,4,4,4" Name="LiveCharts_win" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="2,2,2,2">
 		</Grid>

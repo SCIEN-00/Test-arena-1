@@ -82,7 +82,7 @@ namespace Test_arena_1
 
         private void SHT30_sensor_tick(object sender, object e)
         {
-            SHT30_sensor.WriteRead(command, TemperatureData);
+            /*SHT30_sensor.WriteRead(command, TemperatureData);
 
             // Calculate and report the humidity.
             var rawHumidityReading = HumidityData[0] << 8 | HumidityData[1];
@@ -94,7 +94,7 @@ namespace Test_arena_1
             var rawTempReading = TemperatureData[0] << 8 | TemperatureData[1];
             var tempRatio = rawTempReading / (float)65536;
             double temperature = (-46.85 + (175.72 * tempRatio)) * 9 / 5 + 32;
-            CurrentTemp.Text = temperature.ToString();
+            CurrentTemp.Text = temperature.ToString();*/
         }
     }
 }

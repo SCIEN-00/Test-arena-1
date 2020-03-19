@@ -6,7 +6,8 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
   xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
-  IgnorableNamespaces="uap mp iot uap3">
+  xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+  IgnorableNamespaces="uap mp iot uap3 uap2">
 
   <Identity
     Name="342768f2-9bd3-4919-8890-4c201d53d04d"
@@ -51,8 +52,24 @@
     <iot:Capability Name="lowLevelDevices"/>
     <uap3:Capability Name="backgroundMediaPlayback"/>
     <uap:Capability Name="contacts"/>
+    <iot:Capability Name="systemManagement"/>
+    <uap:Capability Name="phoneCall"/>
+    <uap:Capability Name="objects3D"/>
+    <uap:Capability Name="musicLibrary"/>
+    <Capability Name="codeGeneration"/>
+    <uap:Capability Name="chat"/>
+    <uap:Capability Name="appointments"/>
+    <uap:Capability Name="videosLibrary"/>
+    <uap:Capability Name="voipCall"/>
+    <uap:Capability Name="removableStorage"/>
+    <uap3:Capability Name="remoteSystem"/>
+    <uap:Capability Name="picturesLibrary"/>
+    <uap2:Capability Name="phoneCallHistoryPublic"/>
     <DeviceCapability Name="location"/>
     <DeviceCapability Name="lowLevel"/>
     <DeviceCapability Name="bluetooth"/>
+    <DeviceCapability Name="microphone"/>
+    <DeviceCapability Name="webcam"/>
+    <DeviceCapability Name="proximity"/>
   </Capabilities>
 </Package>
