@@ -28,10 +28,10 @@
 			<StackPanel Grid.Row="0">
 				<TextBlock Text="Test area" FontFamily="Calibri" FontSize="30" HorizontalAlignment="Center" Padding="4,0,4,0" VerticalAlignment="Top"/>
 				<NavigationViewItemSeparator/>
-				<ListViewItem Content="GPIO and sensors" x:Name="GPIO_b" FontFamily="Calibri" FontSize="20" Tapped="GPIO_Tapped" CornerRadius="2,2,2,2"/>
-				<ListViewItem Content="Süsteem" x:Name="System_b" FontFamily="Calibri" FontSize="20" Tapped="System_Tapped" CornerRadius="2,2,2,2"/>
-				<ListViewItem Content="Data plotting" x:Name="Data_plotting_b" FontFamily="Calibri" FontSize="20" IsEnabled="False" CornerRadius="2,2,2,2"/>
-				<ListViewItem Content="LiveCharts" x:Name="LiveCharts_b" FontFamily="Calibri" FontSize="20" IsEnabled="False" CornerRadius="2,2,2,2"/>
+				<ListViewItem Content="GPIO and sensors" x:Name="GPIO_b" FontFamily="Calibri" FontSize="20" Tapped="GPIO_Tapped" CornerRadius="2"/>
+				<ListViewItem Content="Süsteem" x:Name="System_b" FontFamily="Calibri" FontSize="20" Tapped="System_Tapped" CornerRadius="2"/>
+				<ListViewItem Content="Data plotting" x:Name="Data_plotting_b" FontFamily="Calibri" FontSize="20" IsEnabled="False" CornerRadius="2"/>
+				<ListViewItem Content="LiveCharts" x:Name="LiveCharts_b" FontFamily="Calibri" FontSize="20" IsEnabled="False" CornerRadius="2"/>
 				<NavigationViewItemSeparator/>
 			</StackPanel>
 
