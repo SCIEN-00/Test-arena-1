@@ -10,16 +10,22 @@
 
 	<Grid HorizontalAlignment="Center" VerticalAlignment="Center">
 		<controls:StackPanel>
+			<FlyoutBase.AttachedFlyout>
+				<MenuFlyout/>
+			</FlyoutBase.AttachedFlyout>
+
 			<ToggleSwitch x:Name="GPIO_enable" FontFamily="Calibri" OnContent="GPIO enabled" OffContent="GPIO disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="GPIO_Switch_Toggled">
 				<ToggleSwitch.Background>
 					<AcrylicBrush TintColor="#00000000"/>
 				</ToggleSwitch.Background>
 			</ToggleSwitch>
+
 			<ToggleSwitch x:Name="I2C_enable" FontFamily="Calibri" OnContent="I²C enabled" OffContent="I²C disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="I2C_Switch_Toggled">
 				<ToggleSwitch.Background>
 					<AcrylicBrush TintColor="#00000000"/>
 				</ToggleSwitch.Background>
 			</ToggleSwitch>
+			
 			<ToggleSwitch x:Name="SPI_enable" FontFamily="Calibri" OnContent="SPI enabled" OffContent="SPI disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="SPI_Switch_Toggled">
 				<ToggleSwitch.Background>
 					<AcrylicBrush TintColor="#00000000"/>

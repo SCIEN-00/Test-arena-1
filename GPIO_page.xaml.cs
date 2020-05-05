@@ -59,6 +59,8 @@ namespace Test_arena_1
                 };
                 IReadOnlyList<DeviceInformation> devices = await DeviceInformation.FindAllAsync(I2cDevice.GetDeviceSelector());
                 SHT30_sensor = await I2cDevice.FromIdAsync(devices[0].Id, settings);
+                CurrentHumidity.Visibility = Visibility.Visible;
+                CurrentTemp.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
             {
@@ -79,22 +81,23 @@ namespace Test_arena_1
                 SPI_enable.IsOn = false;
             }
         }
-
+        //Send measurement command(0x2C)
+        Byte[] HumidityData, TemperatureData, SensorData, command = { 0x2C };
         private void SHT30_sensor_tick(object sender, object e)
         {
-            /*SHT30_sensor.WriteRead(command, TemperatureData);
+            SHT30_sensor.WriteRead(command, SensorData);
 
             // Calculate and report the humidity.
-            var rawHumidityReading = HumidityData[0] << 8 | HumidityData[1];
+            var rawHumidityReading = SensorData[3] << 8 | SensorData[4];
             var humidityRatio = rawHumidityReading / (float)65536;
             double humidity = -6 + (125 * humidityRatio);
             CurrentHumidity.Text = humidity.ToString();
 
             // Calculate and report the temperature.
-            var rawTempReading = TemperatureData[0] << 8 | TemperatureData[1];
+            var rawTempReading = SensorData[0] << 8 | SensorData[1];
             var tempRatio = rawTempReading / (float)65536;
             double temperature = (-46.85 + (175.72 * tempRatio)) * 9 / 5 + 32;
-            CurrentTemp.Text = temperature.ToString();*/
+            CurrentTemp.Text = temperature.ToString();
         }
     }
 }
