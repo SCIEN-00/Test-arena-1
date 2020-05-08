@@ -39,7 +39,7 @@ namespace Test_arena_1
         {
             try
             {
-                var settings = new I2cConnectionSettings(0x45)
+                var settings = new I2cConnectionSettings(0x40) //raspberry official screen i2c address 0x45
                 {
                     BusSpeed = I2cBusSpeed.FastMode
                 };

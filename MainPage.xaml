@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 	<Page.Background>
-		<ImageBrush ImageSource="/Assets/mars curiosity rover small.png" Stretch="UniformToFill" AlignmentY="Top"/>
+		<ImageBrush x:Name="backround" ImageSource="/Assets/mars curiosity rover small.png" Stretch="UniformToFill" AlignmentY="Top"/>
 	</Page.Background>
 
 	<Grid>
@@ -26,9 +26,11 @@
 			</Grid.RowDefinitions>
 
 			<StackPanel Grid.Row="0">
-				<TextBlock Text="Test area" FontFamily="Calibri" FontSize="30" HorizontalAlignment="Center" Padding="4,0,4,0" VerticalAlignment="Top"/>
+				<TextBlock Name="MainText" Text="Test area" FontFamily="Calibri" FontSize="30" HorizontalAlignment="Center" Padding="4,0,4,0" VerticalAlignment="Top"/>
 				<NavigationViewItemSeparator/>
+				<Frame CornerRadius="2">
 				<ListViewItem Content="GPIO and sensors" x:Name="GPIO_b" FontFamily="Calibri" FontSize="20" Tapped="GPIO_Tapped" CornerRadius="2"/>
+				</Frame>
 				<ListViewItem Content="Süsteem" x:Name="System_b" FontFamily="Calibri" FontSize="20" Tapped="System_Tapped" CornerRadius="2"/>
 				<ListViewItem Content="Data plotting" x:Name="Data_plotting_b" FontFamily="Calibri" FontSize="20" IsEnabled="False" CornerRadius="2"/>
 				<ListViewItem Content="LiveCharts" x:Name="LiveCharts_b" FontFamily="Calibri" FontSize="20" IsEnabled="False" CornerRadius="2"/>

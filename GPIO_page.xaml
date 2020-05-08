@@ -5,7 +5,7 @@
     xmlns:local="using:Test_arena_1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:controls="using:Windows.UI.Xaml.Controls"
+	xmlns:controls="using:Windows.UI.Xaml.Controls" xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
 	mc:Ignorable="d" HorizontalAlignment="Center" VerticalAlignment="Center">
 
 	<Grid HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -14,31 +14,33 @@
 				<MenuFlyout/>
 			</FlyoutBase.AttachedFlyout>
 
-			<ToggleSwitch x:Name="GPIO_enable" FontFamily="Calibri" OnContent="GPIO enabled" OffContent="GPIO disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="GPIO_Switch_Toggled">
+			<ToggleSwitch x:Name="GPIO_enable" FontFamily="Calibri" OnContent="GPIO enabled" OffContent="GPIO disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="GPIO_Switch_Toggled" HorizontalAlignment="Center">
 				<ToggleSwitch.Background>
 					<AcrylicBrush TintColor="#00000000"/>
 				</ToggleSwitch.Background>
 			</ToggleSwitch>
 
-			<ToggleSwitch x:Name="I2C_enable" FontFamily="Calibri" OnContent="I²C enabled" OffContent="I²C disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="I2C_Switch_Toggled">
+			<ToggleSwitch x:Name="I2C_enable" FontFamily="Calibri" OnContent="I²C enabled" OffContent="I²C disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="I2C_Switch_Toggled" HorizontalAlignment="Center">
 				<ToggleSwitch.Background>
 					<AcrylicBrush TintColor="#00000000"/>
 				</ToggleSwitch.Background>
 			</ToggleSwitch>
 			
-			<ToggleSwitch x:Name="SPI_enable" FontFamily="Calibri" OnContent="SPI enabled" OffContent="SPI disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="SPI_Switch_Toggled">
+			<ToggleSwitch x:Name="SPI_enable" FontFamily="Calibri" OnContent="SPI enabled" OffContent="SPI disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="SPI_Switch_Toggled" HorizontalAlignment="Center">
 				<ToggleSwitch.Background>
 					<AcrylicBrush TintColor="#00000000"/>
 				</ToggleSwitch.Background>
 			</ToggleSwitch>
 
-			<Grid CornerRadius="2,2,2,2">
+			<Grid CornerRadius="2,2,2,2" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2">
 				<Grid.Background>
 					<AcrylicBrush TintColor="#00FF0000"/>
 				</Grid.Background>
-				<TextBlock x:Name="GPIO_Info" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed"/>
-				<TextBlock x:Name="CurrentHumidity" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed"/>
-				<TextBlock x:Name="CurrentTemp" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed"/>
+				<StackPanel ScrollViewer.VerticalScrollBarVisibility="Auto" AreScrollSnapPointsRegular="True">
+					<TextBlock x:Name="GPIO_Info" TextWrapping="WrapWholeWords" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2" Padding="2"/>
+					<TextBlock x:Name="CurrentTemp" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" Margin="2" Padding="2"/>
+					<TextBlock x:Name="CurrentHumidity" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" Margin="2" Padding="2"/>
+				</StackPanel>
 			</Grid>
 		</controls:StackPanel>
 
