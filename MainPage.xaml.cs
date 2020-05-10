@@ -41,11 +41,11 @@ namespace Test_arena_1
 		private async void backround_checkerAsync(object sender, object e)
 		{
 			string strRawJSONString = await getJSONString().ConfigureAwait(true); //sama mis strJSONString
-			string lstBingImageURLs = NumOfImage.ToString(); // see on uusima pildi puhul alati 0
+			//string lstBingImageURLs = NumOfImage.ToString(); // see on uusima pildi puhul alati 0
 			JsonObject jsonObject;
 			bool boolParsed = JsonObject.TryParse(strRawJSONString, out jsonObject);
 
-			lstBingImageURLs = jsonObject["images"].GetArray()[NumOfImage-1].GetObject()["url"].GetString();
+			string lstBingImageURLs = jsonObject["images"].GetArray()[NumOfImage-1].GetObject()["url"].GetString();
 
 			var bingURL = "https://www.bing.com" + lstBingImageURLs;
 			BitmapSource imgbingImageSource = new BitmapImage(new Uri(bingURL));
