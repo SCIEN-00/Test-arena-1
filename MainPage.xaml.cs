@@ -16,16 +16,20 @@ namespace Test_arena_1
 	/// </summary>
 	public sealed partial class MainPage : Page
 	{
+		int NumOfImage = 1;
 		public MainPage()
 		{
 			this.InitializeComponent();
+			backround_checkerAsync(null, null);
+
 			DispatcherTimer Timer1 = new DispatcherTimer();
 			Timer1.Tick += Timer_Tick;
 			Timer1.Interval = new TimeSpan(0, 0, 1);
 			Timer1.Start();
+
 			DispatcherTimer Timer2 = new DispatcherTimer();
 			Timer2.Tick += backround_checkerAsync;
-			Timer2.Interval = new TimeSpan(0, 1, 0);
+			Timer2.Interval = new TimeSpan(24, 0, 0);
 			Timer2.Start();
 		}
 
@@ -36,18 +40,15 @@ namespace Test_arena_1
 
 		private async void backround_checkerAsync(object sender, object e)
 		{
-			int _numOfImages = 0; //Convert.ToInt32(e.NewValue);
 			string strRawJSONString = await getJSONString().ConfigureAwait(true); //sama mis strJSONString
-			string _lstBingImageURLs = _numOfImages.ToString(); // see on uusima pildi puhul alati 0
+			string lstBingImageURLs = NumOfImage.ToString(); // see on uusima pildi puhul alati 0
 			JsonObject jsonObject;
 			bool boolParsed = JsonObject.TryParse(strRawJSONString, out jsonObject);
 
-			_lstBingImageURLs = jsonObject["images"].GetArray()[_numOfImages].GetObject()["url"].GetString();
+			lstBingImageURLs = jsonObject["images"].GetArray()[NumOfImage-1].GetObject()["url"].GetString();
 
-			var bingURL = "https://www.bing.com" + _lstBingImageURLs;
+			var bingURL = "https://www.bing.com" + lstBingImageURLs;
 			BitmapSource imgbingImageSource = new BitmapImage(new Uri(bingURL));
-			Image imgbingImage = new Image();
-			imgbingImage.Source = imgbingImageSource;
 			backround.ImageSource = imgbingImageSource;
 		}
 		string strJSONString;
@@ -55,8 +56,7 @@ namespace Test_arena_1
 		{
 			// We can specify the region we want for the Bing Image of the Day.
 			string strRegion = "en-ww";
-			//string strBingImageURL = string.Format("http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n={0}&mkt={1}", _numOfImages, strRegion);
-			string strBingImageURL = string.Format("http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-ww");
+			string strBingImageURL = string.Format("http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n={0}&mkt={1}", NumOfImage, strRegion);
 
 			// Use Windows.Web.Http Namespace as System.Net.Http will be deprecated in future versions.
 			HttpClient client = new HttpClient();
@@ -70,30 +70,6 @@ namespace Test_arena_1
 			strJSONString = await response.Content.ReadAsStringAsync();
 
 			return strJSONString;
-		}
-
-		public List<string> parseJSONString(int _numOfImages, string _strRawJSONString)
-		{
-			List<string> _lstBingImageURLs = new List<string>(_numOfImages);
-			// JsonObject class implements the IMap interface, which helps in manipulating the name/value pairs like a dictionary.
-			JsonObject jsonObject;
-
-			// JsonObject.TryParse parses the JSON string into a JSON value, which returns a boolean value, indicating success or failure.
-			// TryParse is an added safe measure to avoid an execption while parsing.
-			bool boolParsed = JsonObject.TryParse(_strRawJSONString, out jsonObject);
-			if (boolParsed)
-			{
-				for (int i = 0; i < _numOfImages; i++)
-				{
-					// The retrieval structure depends upon JSON string, the base key in our case is "images".
-					// If you retrieve more than one image, "images" key will have more than one array values.
-					// Each Array value has a key/value pair "url", which we retrieve and conver it to a string.
-					_lstBingImageURLs.Add(jsonObject["images"].GetArray()[i].GetObject()["url"].GetString());
-				}
-			}
-
-			// Return the list containing URLs.
-			return _lstBingImageURLs;
 		}
 
 		private void System_Tapped(object sender, RoutedEventArgs e)
