@@ -26,7 +26,7 @@
 				</ToggleSwitch.Background>
 			</ToggleSwitch>
 			
-			<ToggleSwitch x:Name="SPI_enable" FontFamily="Calibri" OnContent="SPI enabled" OffContent="SPI disabled" CornerRadius="2" Margin="2" Padding="2" Toggled="SPI_Switch_Toggled" HorizontalAlignment="Center">
+			<ToggleSwitch x:Name="SPI_enable" FontFamily="Calibri" OnContent="SPI enabled" OffContent="SPI disabled" CornerRadius="2" Margin="2" Padding="20" Toggled="SPI_Switch_Toggled" HorizontalAlignment="Center">
 				<ToggleSwitch.Background>
 					<AcrylicBrush TintColor="#00000000"/>
 				</ToggleSwitch.Background>
@@ -36,10 +36,10 @@
 				<Grid.Background>
 					<AcrylicBrush TintColor="#00FF0000"/>
 				</Grid.Background>
-				<StackPanel ScrollViewer.VerticalScrollBarVisibility="Auto" AreScrollSnapPointsRegular="True">
-					<TextBlock x:Name="GPIO_Info" TextWrapping="WrapWholeWords" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2" Padding="2"/>
-					<TextBlock x:Name="CurrentTemp" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" Margin="2" Padding="2"/>
-					<TextBlock x:Name="CurrentHumidity" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" Margin="2" Padding="2"/>
+				<StackPanel>
+					<TextBlock x:Name="GPIO_Info" TextWrapping="WrapWholeWords" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="2"/>
+					<TextBlock x:Name="CurrentTemp" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" Margin="2"/>
+					<TextBlock x:Name="CurrentHumidity" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Calibri" Visibility="Collapsed" Margin="2"/>
 				</StackPanel>
 			</Grid>
 		</controls:StackPanel>

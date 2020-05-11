@@ -48,6 +48,7 @@ namespace Test_arena_1
             }
             catch (Exception e)
             {
+                Info_field.Visibility = Visibility.Visible;
                 Info_field.Text = "I2C Initialization failed. Exception: " + e.Message;
                 return;
             }
@@ -66,6 +67,7 @@ namespace Test_arena_1
             }
             catch (Exception ex)
             {
+                Info_field.Visibility = Visibility.Visible;
                 Info_field.Text = ex.Message;
             }
         }
@@ -81,6 +83,7 @@ namespace Test_arena_1
             }
             catch (Exception ex)
             {
+                Info_field.Visibility = Visibility.Visible;
                 Info_field.Text = ex.Message;
             }
 		}

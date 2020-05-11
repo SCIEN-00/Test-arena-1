@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.UI.Xaml;
@@ -51,6 +50,7 @@ namespace Test_arena_1
 			BitmapSource imgbingImageSource = new BitmapImage(new Uri(bingURL));
 			backround.ImageSource = imgbingImageSource;
 		}
+
 		string strJSONString;
 		public async Task<string> getJSONString()
 		{
